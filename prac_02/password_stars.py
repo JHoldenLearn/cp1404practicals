@@ -4,9 +4,23 @@ asks the user for a password, with error-checking to repeat if the password does
 
 MINIMUM_LENGTH = 7
 
-password = input("Enter password: ")
-while len(password) < MINIMUM_LENGTH:
-    print(f"Password must be at least {MINIMUM_LENGTH} characters")
-    password = input("Enter password: ")
+def main():
 
-print("*" * len(password))
+    password = get_password()
+
+    print_asterisks(password)
+
+
+def print_asterisks(password: str):
+    print("*" * len(password))
+
+
+def get_password() -> str:
+    password = input("Enter password: ")
+    while len(password) < MINIMUM_LENGTH:
+        print(f"Password must be at least {MINIMUM_LENGTH} characters")
+        password = input("Enter password: ")
+    return password
+
+
+main()
